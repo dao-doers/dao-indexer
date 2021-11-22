@@ -1,5 +1,6 @@
 type Moloch @entity {
   id: ID!
+  title: String!
   version: String
   summoner: Bytes!
   newContract: String
@@ -84,6 +85,7 @@ type Vote @entity {
 type Proposal @entity {
   id: ID!
   createdAt: String!
+  createdBy: Bytes!
   proposalIndex: BigInt
   proposalId: BigInt!
   moloch: Moloch!

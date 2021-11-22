@@ -42,6 +42,15 @@ export class Moloch extends Entity {
     this.set("id", Value.fromString(value));
   }
 
+  get title(): string {
+    let value = this.get("title");
+    return value.toString();
+  }
+
+  set title(value: string) {
+    this.set("title", Value.fromString(value));
+  }
+
   get version(): string | null {
     let value = this.get("version");
     if (value === null || value.kind == ValueKind.NULL) {

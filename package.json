@@ -11,21 +11,12 @@
     "build:all": "yarn codegen && yarn build",
     "prepare:mainnet": "node manifests/deploy-prep.js mainnet",
     "prepare:xdai": "node manifests/deploy-prep.js xdai",
-    "prepare:matic": "node manifests/deploy-prep.js matic",
-    "prepare:kovan": "node manifests/deploy-prep.js kovan",
-    "prepare:rinkeby": "node manifests/deploy-prep.js rinkeby",
-    "prepare:arbitrum": "node manifests/deploy-prep.js arbitrum-one",
-    "prepare:celo": "node manifests/deploy-prep.js celo",
-    "deploy:mainnet": "yarn prepare:mainnet && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus",
-    "deploy:xdai": "yarn prepare:xdai && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-xdai",
-    "deploy:matic": "yarn prepare:rinkeby && yarn build:all && yarn prepare:matic && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-matic",
-    "deploy:kovan": "yarn prepare:kovan && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-kovan",
-    "deploy:rinkeby": "yarn prepare:rinkeby && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-rinkeby",
-    "deploy:arbitrum": "yarn prepare:rinkeby && yarn build:all && yarn prepare:arbitrum && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-arbitrum",
-    "deploy:celo": "yarn prepare:rinkeby && yarn build:all && yarn prepare:celo && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-celo"
+    "create:testnet": "graph create --node http://114.126.223.15:8020/ odyssy-automaton/daohaus",
+    "deploy:testnet": "yarn build:all && graph deploy --node http://114.126.223.15:8020/ --ipfs http://114.126.223.15:5001 odyssy-automaton/daohaus"
   },
   "dependencies": {
-    "@graphprotocol/graph-ts": "^0.20.0",
+    "@graphprotocol/graph-cli": "0.20.1",
+    "@graphprotocol/graph-ts": "0.20.1",
     "js-yaml": "^3.13.1",
     "minimist": "^1.2.5"
   }

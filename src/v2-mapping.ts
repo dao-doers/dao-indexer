@@ -18,9 +18,9 @@ import {
   CancelProposal,
   Withdraw,
   TokensCollected,
-} from "../generated/templates/MolochV2Template/V2Moloch";
-import { Erc20 } from "../generated/templates/MolochV2Template/Erc20";
-import { Erc20Bytes32 } from "../generated/templates/MolochV2Template/Erc20Bytes32";
+} from "../generated/MolochV2/V2Moloch";
+import { Erc20 } from "../generated/MolochV2/Erc20";
+import { Erc20Bytes32 } from "../generated/MolochV2/Erc20Bytes32";
 
 import {
   Moloch,
@@ -30,7 +30,6 @@ import {
   Proposal,
   Vote,
   RageQuit,
-  DaoMeta,
   Minion,
 } from "../generated/schema";
 import { addTransaction } from "./transactions";
@@ -203,7 +202,6 @@ export function createAndApproveToken(molochId: string, token: Bytes): string {
 export function handleSummonComplete(event: SummonComplete): void {
   let molochId = event.address.toHex();
   let moloch = new Moloch(molochId);
-  let daoMeta = DaoMeta.load(molochId);
 
   let tokens = event.params.tokens;
   let approvedTokens: string[] = [];
@@ -218,8 +216,9 @@ export function handleSummonComplete(event: SummonComplete): void {
   moloch.summoner = event.params.summoner;
   moloch.summoningTime = event.params.summoningTime;
   moloch.createdAt = event.params.summoningTime.toString();
-  moloch.version = daoMeta.version;
-  moloch.newContract = daoMeta.newContract;
+  moloch.version = '2';
+  moloch.newContract = '0x';
+  moloch.title = 'Nervos Layer 2 DAO';
   moloch.deleted = false;
   moloch.periodDuration = event.params.periodDuration;
   moloch.votingPeriodLength = event.params.votingPeriodLength;
