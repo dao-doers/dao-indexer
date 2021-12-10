@@ -8,7 +8,7 @@ dataSources:
     name: MolochV2
     network: godwoken-testnet
     source:
-      address: "0xD072BFa86ebfd709D953F8b3DBb8da0D87D32Eb4"
+      address: "0xB252c90a042b2E698791b9bCab26Fc5A1e8a241A"
       abi: V2Moloch
       startBlock: 1
     mapping:

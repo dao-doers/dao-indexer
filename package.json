@@ -11,8 +11,9 @@
     "build:all": "yarn codegen && yarn build",
     "prepare:mainnet": "node manifests/deploy-prep.js mainnet",
     "prepare:xdai": "node manifests/deploy-prep.js xdai",
-    "create:testnet": "graph create --node http://114.126.223.15:8020/ odyssy-automaton/daohaus",
-    "deploy:testnet": "yarn build:all && graph deploy --node http://114.126.223.15:8020/ --ipfs http://114.126.223.15:5001 odyssy-automaton/daohaus"
+    "create:testnet": "graph create --node http://3.70.170.207:8020/ odyssy-automaton/daohaus",
+    "deploy:testnet": "yarn build:all && graph deploy --node http://3.70.170.207:8020/ --ipfs http://3.70.170.207:5001 odyssy-automaton/daohaus",
+    "remove:testnet": "graph remove --node http://3.70.170.207:8020/ odyssy-automaton/daohaus"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.20.1",
