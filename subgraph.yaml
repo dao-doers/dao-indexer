@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: MolochV2
-    network: godwoken-testnet
+    network: godwoken-mainnet
     source:
-      address: '0xB252c90a042b2E698791b9bCab26Fc5A1e8a241A'
+      address: '0x8D98FE6B41Ef6eB53C5db91B8867C3766C1C55f8'
       abi: V2Moloch
-      startBlock: 1
+      startBlock: 100000
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
